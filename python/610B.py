@@ -8,22 +8,22 @@
 
 # Функция поиска максимальной длины сегмента 
 def longest_segment(array: tuple, n: int, el: int):
+
     # Изначально самый длинный сегмент равен нулю
     longest_segment = 0
     # Запоминаем первое вхождение, чтобы знать откуда начинать
     first_occurence = array.index(el)
     # Также для вычисления отрезка будем хранить его начало
     previously_found = first_occurence
+
     # От следующего элемента первого вхождения и до конца
     for i in range(first_occurence + 1, n):
         # Если нашли еще один минимум
         if array[i] == el:
             # То вычисляем его длину
             current_length = i - previously_found - 1
-            # И если его длина больше текущего максимального
-            if current_length > longest_segment:
-                # То мы нашли новую наибольшую длину
-                longest_segment = current_length
+            # И если его длина больше текущего максимального, то мы нашли новую наибольшую длину
+            longest_segment = max(current_length, longest_segment)
             # Теперь i будет последним втреченным минимумом
             previously_found = i
     
