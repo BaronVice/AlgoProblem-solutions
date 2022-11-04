@@ -1,2 +1,2 @@
 # AlgoProblem-solutions
-Solving some codeforces problems with my juniors
+Solving some competitive coding problems with my juniors
