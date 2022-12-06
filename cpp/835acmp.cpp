@@ -28,8 +28,22 @@ int main(){
             else
                 memo[i][j] = memo[i-1][j];
         }
-    
-    cout << memo[n][w] << '\n';
+
+    vector<int> items;
+    int i = n, j = w;
+    while (i > 0 && j > 0){
+        if (memo[i][j] != memo[i-1][j]){
+            items.push_back(i);
+            j -= weight[i];
+        }
+        i -= 1;
+    }
+
+    reverse(items.begin(), items.end());
+
+    cout << items.size() << ' ' << memo[n][w] << '\n';
+    for (auto el : items)
+        cout << el << ' ';
 
     return 0;
 }
