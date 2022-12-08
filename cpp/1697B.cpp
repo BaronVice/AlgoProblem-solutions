@@ -12,10 +12,13 @@ using ll = long long;
 
 int main(){
 
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
     int n, q;
     cin >> n >> q;
 
-    int price;
     vector <ll> prices(n);
     for(auto &i : prices){
         cin >> i;
@@ -41,7 +44,7 @@ int main(){
             cout << prices[x - 1] - prices[x - y - 1];
         }
         // P.S. не забываем про -1 в индексах, поскольку мы считаем с нуля
-        cout << endl;
+        cout << '\n';
     }
 
     return 0;
