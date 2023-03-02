@@ -1,2 +1,2 @@
 # AlgoProblem-solutions
-Solving some competitive coding problems with my juniors
+Some solutions + algorithms and data structures
