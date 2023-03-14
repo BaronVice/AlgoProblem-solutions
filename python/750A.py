@@ -8,7 +8,7 @@ def main():
         amount += 1
         time_left -= 5 * amount
 
-    print(amount-1)
+    print(min(amount-1, n))
 
 
 if __name__ == "__main__":

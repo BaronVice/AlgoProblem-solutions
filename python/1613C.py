@@ -1,6 +1,5 @@
 
 
-
 def damage(k, attacks, n):
     total_damage = k
     for i in range(1, n):
