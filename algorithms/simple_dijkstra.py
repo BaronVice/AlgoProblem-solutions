@@ -47,7 +47,12 @@ def main():
     q.put((weights['Москва'], 'Москва'))
     while not q.empty():
         weight, city = q.get()
-        ...
+        for neighbour, distance in cities[city]:
+            if weights[neighbour] > distance + weight:
+                weights[neighbour] = distance + weight
+                q.put((weights[neighbour], neighbour))
+
+    print(weights)
 
 
 if __name__ == "__main__":
