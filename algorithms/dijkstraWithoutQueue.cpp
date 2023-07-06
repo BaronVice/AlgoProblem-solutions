@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <queue>
 
 using namespace std;
 using ll = long long;
@@ -10,25 +9,25 @@ int n, s;
 vector<vector<pii>> g;
 vector<bool> visited;
 vector<int> dist;
-priority_queue<pii> q;
 
 void bfs(){
-    while (!q.empty()){
-        int v = q.top().second;
-        q.pop();
+    for (int i = 0; i < n; i++) {
+        int v = -1;
+        for (int j = 0; j < n; j++){
+            if (!visited[j] && (v == -1 || dist[v] > dist[j]))
+                v = j;
+        }
 
-        if (visited[v])
-            continue;
+        if (v == -1 || dist[v] == 1e9)
+            break;
         
         visited[v] = true;
-
         for (auto & p : g[v]){
             int to = p.second;
             int weight = p.first;
 
             if (dist[v] + weight < dist[to]){
                 dist[to] = dist[v] + weight;
-                q.push({dist[to], to});
             }
         }
     }
@@ -43,8 +42,7 @@ int main(){
     cin >> s;
     visited[s] = true;
     dist[s] = 0;
-    q.push({dist[s], s});
-
+    
     bfs();
 
     return 0;
