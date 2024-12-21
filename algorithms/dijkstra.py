@@ -28,7 +28,6 @@ for _ in range(m):
     g[f].append([weigth, t])
     g[t].append([weigth, f])
 
-visited[s] = True
 dist[s] = 0
     
 bfs()
