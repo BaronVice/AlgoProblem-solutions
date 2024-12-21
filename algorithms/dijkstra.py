@@ -22,7 +22,7 @@ def bfs():
                 dist[to] = dist[v] + weight
 
 for _ in range(m):
-    f, t, weigth = map(int, input().split)
+    f, t, weigth = map(int, input().split())
     f -= 1
     t -= 1
     g[f].append([weigth, t])
